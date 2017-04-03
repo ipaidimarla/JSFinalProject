@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Office Visitor Log App using Python</title>
+
+
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="script.js"></script>
+
+
+</head>
+
+<body ng-app="app" style="background-color: cornsilk;"  >
+
+<div class="container" ng-controller="loanCtrl">
+    <div class="header">
+        <h3 class="text-muted"  >Loan Calculator</h3>
+    </div>
+
+
+    <div class='main-container'>
+        <div class="left-container">
+
+    <!--<form action="calculateLoanAmount()" method="post" role="form">-->
+        <!--<div style="font-weight: bold">Enter Loan Data :</div>-->
+        <!--<div class="form-group">-->
+            <!--<label for="loanAmt">Amount of the loan($) :&nbsp;&nbsp;</label>-->
+            <!--<input ng-blur='validate(this)' ng-model="loanAmount" style="display: inline; margin-left: 5.5%; width: 30%" type="text" class="form-control" required id="loanAmt">-->
+
+        <!--</div>-->
+        <!--<div class="form-group">-->
+            <!--<label for="interest">Annual interest (%) :&nbsp;&nbsp;</label>-->
+            <!--<input style="display: inline; margin-left: 10%; width: 30%" type="text" class="form-control" required id="interest">-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+            <!--<label for="repay">Repayment period(years) :&nbsp;&nbsp;</label>-->
+            <!--<input style="display: inline; margin-left: -1%; width: 30%" type="text" class="form-control" required id="repay">-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+            <!--<label for="zipcode">Zipcode (to find lenders) :&nbsp;&nbsp;</label>-->
+            <!--<input style="display: inline; width: 30%" type="text" class="form-control" required id="zipcode">-->
+        <!--</div>-->
+        <!--<div style="font-weight: bold">-->
+            <!--<label>Approximate Payments :</label>-->
+            <!--<button style ='display:inline; margin-left:5%;' type="submit" class="btn btn-primary">Calculate</button>-->
+        <!--</div>-->
+    <!--</form>-->
+
+            <form name="userForm" id="loanForm" ng-submit="submitForm()" novalidate>
+
+                <!-- Loan Amount -->
+                <div class="form-group" ng-class="{ 'has-error' : userForm.loanAmount.$invalid && !userForm.loanAmount.$pristine }">
+                    <label>Amount of the loan($)</label>
+                    <input type="number" style="display: inline; margin-left: 2.5%;width: 25%" name="loanAmount" class="form-control" ng-model="loanAmount" required>
+                    <p  ng-show="userForm.loanAmount.$invalid && !userForm.loanAmount.$pristine" class="help-block">Only numbers are allowed.</p>
+                </div>
+
+                <!-- Annual interest -->
+                <div class="form-group" ng-class="{ 'has-error' : userForm.interest.$invalid && !userForm.interest.$pristine }">
+                    <label>Annual interest (%) :&nbsp;&nbsp;</label>
+                    <input type="number" style="display: inline; margin-left: 2.5%; width:25%"  name="interest" class="form-control" ng-model="interest" required >
+                    <p ng-show="userForm.interest.$invalid && !userForm.interest.$pristine" class="err-message help-block">Only numbers are allowed.</p>
+
+                </div>
+
+                <!-- Repayment -->
+                <div class="form-group" ng-class="{ 'has-error' : userForm.repay.$invalid && !userForm.repay.$pristine }">
+                    <label>Repayment period(years) :</label>
+                    <input type="number" style="display: inline; margin-left: 2.5%;width: 25%"  name="repay" class="form-control" ng-model="repay" required>
+                    <p ng-show="userForm.repay.$invalid && !userForm.repay.$pristine" class="err-message help-block">Only numbers are allowed.</p>
+                </div>
+
+                <!-- Repayment -->
+                <div class="form-group" ng-class="{ 'has-error' : userForm.zipcode.$invalid && !userForm.zipcode.$pristine }">
+                    <label>Zipcode (to find lenders)  :</label>
+                    <input type="number" style="display: inline; margin-left: 2.5%;width: 25%"  name="zipcode" class="form-control" ng-model="zipzode" required>
+                    <p ng-show="userForm.zipcode.$invalid && !userForm.zipcode.$pristine" class="err-message help-block">Only numbers are allowed.</p>
+                </div>
+
+                <div style="font-weight: bold">
+                <label>Approximate Payments :</label>
+                <button style ='display:inline; margin-left:5%;' type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Calculate</button>
+                </div>
+
+
+
+            </form>
+    </div>
+<div ng-show="showGraph">
+    <canvas id="graphAreaCanvas" class="right-container"  height="275px" width="400px">
+
+
+    </canvas>
+        <div class="flex-container">
+            <label class="flex-item"> Loan Amount</label>
+            <label class="flex-item"> Interest</label>
+            <label class="flex-item"> Monthly Payment</label>
+        </div>
+</div>
+
+</div>
+<label >{{loanAmount}}</label>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+/*.left-container{*/
+/*float:left;*/
+/*}*/
+.right-container{
+    float:right;
+    border: 1px solid #000;
+    margin-top: -24%;
+
+}
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    margin-top: 5px;
+    width: 250px;
+    text-align: right;
+}ß
+input[type=text] p{
+    display: inline-block;
+    float: left;
+    width:30%;
+}
+
+ .err-message{
+     margin-left: 32%;
+ }
+#loanForm{
+    background-color: orange;
+    width:60%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+document{
+    background-color: cornsilk;
+}
+
+a {color: black; text-decoration: none;
+    transition: all 100ms linear;
+    -webkit-transition: all 100ms linear;
+    -moz-transition: all 100ms linear;
+    -ms-transition: all 100ms linear;
+    -o-transition: all 100ms linear;}
+.flex-container{
+display: -webkit-flex;
+display: flex;
+width: 100%;
+    margin-left:65%;
+    margin-top:2%;
+
+}
+.flex-item {
+
+    width: 90px;
+    float:right;
+    margin: 10px;
+
+}
